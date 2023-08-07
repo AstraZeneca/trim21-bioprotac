@@ -1,7 +1,7 @@
 
-## non-kinetics
+## data analysis of non-kinetic experiments
 
-### data
+### metadata
 
 - Constructs: GFP_RBCC, GFP_VHH, HuR_RBCC, HuR_VHH, RBCC_GFP, RBCC_HuR
 - Plates: R1, R2, R3
@@ -25,11 +25,11 @@ Name keys for manuscript:
 
 
 
-### limma
+### limma analysis
 
 ```{r}
 library(devtools)
-load_all("/projects/qbio/bifo/R/3.6.0/pxanalytics")
+load_all("~/R/3.6.0/pxanalytics")
 library(tidyverse)
 library(yaml)
 library(data.table)
@@ -820,7 +820,7 @@ venn.plot <- draw.triple.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_HuR_vs_RBCC_GFP_RBCC_HuR_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_HuR_vs_RBCC_GFP_RBCC_HuR_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -856,7 +856,7 @@ venn.plot <- draw.pairwise.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_HuR_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_HuR_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -891,7 +891,7 @@ venn.plot <- draw.pairwise.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_RBCC_GFP_vs_HuR_VHH_RBCC_GFP_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_RBCC_GFP_vs_HuR_VHH_RBCC_GFP_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -926,7 +926,7 @@ venn.plot <- draw.pairwise.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_venn1_venn2_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_venn1_venn2_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -961,7 +961,7 @@ venn.plot <- draw.pairwise.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_GFP_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_RBCC_HuR_vs_HuR_VHH_RBCC_GFP_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -998,7 +998,7 @@ venn.plot <- draw.triple.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_RBCC_HuR_vs_HuR_VHH_HuR_VHH_vs_RBCC_GFP_HuR_VHH_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_RBCC_HuR_vs_HuR_VHH_HuR_VHH_vs_RBCC_GFP_HuR_VHH_vs_GFP_VHH_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -1013,9 +1013,9 @@ write.table(intersect(intersect(RBCC_HuR_vs_HuR_VHH$rn,HuR_VHH_vs_RBCC_GFP$rn),H
 
 
 
-## kinetics
+## data analysis of kinetic experiments
 
-### data
+### metadata
 
 - Time points: 0, 24, 48, 72h
 - Treatments: +Dox, -Dox
@@ -1036,7 +1036,7 @@ write.table(intersect(intersect(RBCC_HuR_vs_HuR_VHH$rn,HuR_VHH_vs_RBCC_GFP$rn),H
 
 ```{r}
 library(devtools)
-load_all("/projects/qbio/bifo/R/3.6.0/pxanalytics")
+load_all("~/R/3.6.0/pxanalytics")
 library(tidyverse)
 library(yaml)
 library(data.table)
@@ -1100,7 +1100,7 @@ fit2 <- eBayes(fit2)
 
 
 # biogrid data
-biogrid <- fread("../materials/BioGRID_List_of_Proteins.csv")
+biogrid <- fread("BioGRID_List_of_Proteins.csv")
 biogrid_vector <- setdiff(unique(c(biogrid[,8][[1]], biogrid[,9][[1]])), c("ELAVL1"))
 biogrid_vector <- append(biogrid_vector, c("SGO1", "BRF1", "NR2F2", "GOT1", "FH", "SAT2", ";TUBB3"))
 
@@ -1721,7 +1721,7 @@ venn.plot <- draw.triple.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_t24h_pDox_A_vs_t0h_pDox_A_t48h_pDox_A_vs_t0h_pDox_A_t72h_pDox_A_vs_t0h_pDox_A_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_t24h_pDox_A_vs_t0h_pDox_A_t48h_pDox_A_vs_t0h_pDox_A_t72h_pDox_A_vs_t0h_pDox_A_downregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -1763,7 +1763,7 @@ venn.plot <- draw.triple.venn(
   print.mode = "raw",
   margin = 0.25)
 
-pdf("../figures/venn_t24h_pDox_A_vs_t0h_pDox_A_t48h_pDox_A_vs_t0h_pDox_A_t72h_pDox_A_vs_t0h_pDox_A_upregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
+pdf("figures/venn_t24h_pDox_A_vs_t0h_pDox_A_t48h_pDox_A_vs_t0h_pDox_A_t72h_pDox_A_vs_t0h_pDox_A_upregulated.pdf", width = 24/2.54, height = 24/2.54, useDingbats = FALSE)
 g <- grid.draw(venn.plot)
 dev.off()
 
@@ -1781,7 +1781,7 @@ write.table(intersect(intersect(t24h_pDox_A_vs_t0h_pDox_A$rn,t48h_pDox_A_vs_t0h_
 
 ## uniprot keyword analyses
 
-Four separate lists were created from `211117 List of Proteins for Keywords Analysis.xlsx` and then do uniprot keyword analysis similar following to what performed on [this manuscript](https://github.com/sblab-bioinformatics/cmpp)
+Four separate lists were created from `211117 List of Proteins for Keywords Analysis.xlsx` and then uniprot keyword analysis was done similarly to what performed on [this manuscript](https://github.com/sblab-bioinformatics/cmpp)
 
 
 ### combine columns and upload to uniprot to retrieve info
@@ -1878,7 +1878,7 @@ ggtitle("UniprotKB keyword") +
 theme_bw() +
 theme(axis.title = element_text(size=16), axis.text = element_text(size=12, color = "black"), axis.text.y = element_text(angle = 0, vjust = 0.5, hjust=1), plot.title = element_text(face="bold", size=16, hjust = 0.5))
 
-ggsave("211111_List_of_Proteins_for_Keywords_Analysis_kinetic_down_up_fixed_uniprot_keyword.pdf", height = 4, width = 6)
+ggsave("figures/211111_List_of_Proteins_for_Keywords_Analysis_kinetic_down_up_fixed_uniprot_keyword.pdf", height = 4, width = 6)
 ```
 
-For interpretation of uniprot keywords check this: https://www.uniprot.org/docs/keywlist
+For interpretation of uniprot keywords check this out: https://www.uniprot.org/docs/keywlist
