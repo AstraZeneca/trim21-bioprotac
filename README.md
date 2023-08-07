@@ -1,1 +1,1 @@
-Data analysis [code](code.md) available for Fletcher A. et al., 2023 (submitted)
+Bioinformatics data analysis [code](code.md) accompanying Fletcher A. et al., 2023 (accepted)
