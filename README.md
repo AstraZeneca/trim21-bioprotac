@@ -1,5 +1,4 @@
 ![Maturity level-0](https://img.shields.io/badge/Maturity%20Level-ML--0-red)
-[![DOI](https://zenodo.org/badge/675434986.svg)](https://zenodo.org/badge/latestdoi/675434986)
 
 Bioinformatics data analysis code accompanying Fletcher A. et al., 2023 (accepted)
 
@@ -8,3 +7,5 @@ Software requirements:
 - Python 3.6.6
 
 To reproduce the data analyses, figures and tables in the paper install the software requirements run the [script](code_0.1.0.md) directly
+
+Latest release: [![DOI](https://zenodo.org/badge/675434986.svg)](https://zenodo.org/badge/latestdoi/675434986)
