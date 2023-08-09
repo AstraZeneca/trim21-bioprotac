@@ -1,4 +1,5 @@
 ![Maturity level-0](https://img.shields.io/badge/Maturity%20Level-ML--0-red)
+[![DOI](https://zenodo.org/badge/675434986.svg)](https://zenodo.org/badge/latestdoi/675434986)
 
 Bioinformatics data analysis code accompanying Fletcher A. et al., 2023 (accepted)
 
