@@ -10,4 +10,5 @@ Software requirements:
 
 To reproduce the data analyses, the figures and tables in the paper, install the software requirements and run the [scripts](code.md)
 
-Latest release: [![DOI](https://zenodo.org/badge/675434986.svg)](https://zenodo.org/badge/latestdoi/675434986)
+Release at time of publication: [![DOI](https://zenodo.org/badge/675434986.svg)](https://zenodo.org/badge/latestdoi/675434986)
+Any updates will be managed directly using this GitHub page
